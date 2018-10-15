@@ -10,7 +10,8 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
+    //@Override
+    public static final String EXTRA_MESSAGE = "bzh.esir.iot.myapp.MESSAGE";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
