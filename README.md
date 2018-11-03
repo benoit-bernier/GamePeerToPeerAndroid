@@ -4,7 +4,7 @@
 ## 6 défis
 ### Défi de geste
 - Taper avec un marteau
-- Faire le niveau à bulle
+- Faire le niveau à bulle - la base est là, manque plus que le traitement derrière
 ### Défi de mouvement sur l'écran
 - Dévisser / visser une vis
 - Relier les deux fils electriques - voir en TP car problème pour récupérer la position d'une image
