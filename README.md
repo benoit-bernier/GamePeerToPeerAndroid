@@ -7,7 +7,8 @@
 - Faire le niveau à bulle
 ### Défi de mouvement sur l'écran
 - Dévisser / visser une vis
-- Relier les deux fils electriques
+- Relier les deux fils electriques - voir en TP car problème pour récupérer la position d'une image
+- Tape marteau / clou - done
 ### Défi de réponse à une question
 - Trouver le nom de la vis
 - Trouver le nom de l'outil
