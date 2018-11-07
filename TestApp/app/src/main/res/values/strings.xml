@@ -27,4 +27,8 @@
     <string name="gameLauncher_button_game4">Le jeu du HUUUULK !</string>
     <string name="gameLauncher_button_game5">Le bô morse O !</string>
     <string name="launchergame_descript">Jeux disponibles</string>
+
+    <string name="compose_shortcut_short_label1">Jouer solo</string>
+    <string name="compose_shortcut_long_label1">Ceci est conçu pour jouer en solo, quand on a pas des amis</string>
+    <string name="compose_disabled_message1">Shortcut désactivé</string>
 </resources>

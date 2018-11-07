@@ -24,6 +24,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".LauncherGame"
@@ -88,6 +90,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LauncherGame" />
         </activity>
+        <activity
+            android:name=".QCMActivity"
+            android:parentActivityName=".LauncherGame">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LauncherGame" />
+        </activity>
+        <activity
+            android:name=".resultatActivity"
+            android:parentActivityName=".LauncherGame">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".QCMActivity" />
+        </activity>
+
     </application>
 
 </manifest>

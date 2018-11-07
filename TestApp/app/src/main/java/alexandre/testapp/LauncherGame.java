@@ -42,4 +42,10 @@ public class LauncherGame extends AppCompatActivity {
         Intent nextPage = new Intent(this, GameMorse.class);
         startActivity(nextPage);
     }
+
+    /** Called when the user taps the "QCM" button */
+    public void sendQCM(View view){
+        Intent nextPage = new Intent(this, QCMActivity.class);
+        startActivity(nextPage);
+    }
 }
