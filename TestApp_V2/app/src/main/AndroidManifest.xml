@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".EnterName">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,12 +18,12 @@
         </activity>
         <activity
             android:name=".PageAccueil"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".EnterName">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".EnterName" />
         </activity>
         <activity
             android:name=".LauncherGame"
@@ -53,7 +53,7 @@
                 android:value=".LauncherGame" />
         </activity>
         <activity
-            android:name=".GameJoinTheCable"
+            android:name=".GameDrapeau"
             android:parentActivityName=".LauncherGame">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -62,7 +62,7 @@
                 android:value=".LauncherGame" />
         </activity>
         <activity
-            android:name=".GameJeuDuNiveau"
+            android:name=".GamePeche"
             android:parentActivityName=".LauncherGame">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -71,7 +71,7 @@
                 android:value=".LauncherGame" />
         </activity>
         <activity
-            android:name=".GameJeuDuHulk"
+            android:name=".GameLumiere"
             android:parentActivityName=".LauncherGame">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -88,6 +88,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LauncherGame" />
         </activity>
+        <activity
+            android:name=".QCMActivity"
+            android:parentActivityName=".LauncherGame">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LauncherGame" />
+        </activity>
+        <activity
+            android:name=".resultatActivity"
+            android:parentActivityName=".LauncherGame">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".QCMActivity" />
+        </activity>
+        <activity android:name=".suivantTouch" />
+        <activity android:name=".suivantMvt"/>
+        <activity android:name=".suivantChoixMono"
+            android:parentActivityName=".PageAccueil"/>
     </application>
 
 </manifest>

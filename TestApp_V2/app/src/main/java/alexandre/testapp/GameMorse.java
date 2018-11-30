@@ -1,5 +1,7 @@
 package alexandre.testapp;
 
+import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,19 +15,24 @@ public class GameMorse extends AppCompatActivity {
 
     private GestureDetectorCompat mDetector;
     private String DEBUG_TAG = "test_GameMorse";
-    private String message = "Message : ";
+    private final String message = "Message : ";
+    private String morse = "";
+    public static final String EXTRA_SCORE = "scoreTouch"; // NE PAS MODIFIER
+
+    private long debut, fin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_morse);
         mDetector = new GestureDetectorCompat(this, new GameMorse.MyGestureListener());
+        debut=SystemClock.elapsedRealtime();
     }
 
     public void restart(View view){
-        message = "Message : ";
+        morse = "";
         TextView champs_message = findViewById(R.id.game_morse_message);
-        champs_message.setText(message);
+        champs_message.setText(message+morse);
     }
 
     @Override
@@ -42,8 +49,15 @@ public class GameMorse extends AppCompatActivity {
             TextView champs_type = findViewById(R.id.game_morse_type);
             champs_type.setText("Last symbol : .");
             TextView champs_message = findViewById(R.id.game_morse_message);
-            message = message + ".";
-            champs_message.setText(message);
+            morse += ".";
+            champs_message.setText(message+morse);
+            if(morse.equals("...___...")){ // == ne fonctionne pas
+                fin =SystemClock.elapsedRealtime();
+                Log.d("Durée : ", String.valueOf((int)fin-debut));
+                Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+                intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                startActivity(intent);
+            }
             return true;
         }
         @Override
@@ -52,8 +66,15 @@ public class GameMorse extends AppCompatActivity {
             TextView champs_type = findViewById(R.id.game_morse_type);
             champs_type.setText("Last symbol : _");
             TextView champs_message = findViewById(R.id.game_morse_message);
-            message = message + "_";
-            champs_message.setText(message);
+            morse += "_";
+            champs_message.setText(message+morse);
+            if(morse.equals("...___...")){
+                fin=SystemClock.elapsedRealtime();
+                Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+                Log.d("Durée : ", String.valueOf((int)fin-debut));
+                intent.putExtra(EXTRA_SCORE, (int)(fin-debut));
+                startActivity(intent);
+            }
         }
     }
 }

@@ -3,10 +3,14 @@ package alexandre.testapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class PageAccueil extends AppCompatActivity {
+    public static final String EXTRA_NAME = "defaultName";
+    public String blabla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,16 +19,19 @@ public class PageAccueil extends AppCompatActivity {
 
         // Get the Intent that started this activity and extract the string
         Intent previousactivity = getIntent();
-        String message = previousactivity.getStringExtra(MainActivity.EXTRA_NAME);
+        String UserName = previousactivity.getStringExtra(EnterName.EXTRA_NAME);
+        blabla=UserName;
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView);
-        textView.setText(message);
+        textView.setText(UserName);
     }
 
     /** Called when the user taps the "Mode solo" button */
     public void sendSolo(View view) {
-        Intent nextPage = new Intent(this, LauncherGame.class);
+        Log.d("Page Acuueil", "working");
+        Intent nextPage = new Intent(this, suivantChoixMono.class);
+        nextPage.putExtra(EXTRA_NAME, blabla);
         startActivity(nextPage);
     }
 
