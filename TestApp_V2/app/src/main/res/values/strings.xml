@@ -37,5 +37,5 @@
     <string name="choose_game">Es-tu vraiment prêt ?</string>
     <string name="QCMButton">Commencer</string>
     <string name="StringQCM" />
-    <string name="button_entrainement" >Entraînement</string>
+    <string name="button_entrainement">Entraînement</string>
 </resources>

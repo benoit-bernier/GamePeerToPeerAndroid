@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="alexandre.testapp">
-    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_bachi"
@@ -102,12 +110,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PageAccueil" />
         </activity>
-        <activity android:name=".suivantTouch"
-            android:parentActivityName=".PageAccueil"/>
-        <activity android:name=".suivantMvt"
-            android:parentActivityName=".PageAccueil"/>
-        <activity android:name=".suivantChoixMono"
-            android:parentActivityName=".PageAccueil"/>
+        <activity
+            android:name=".suivantTouch"
+            android:parentActivityName=".PageAccueil" />
+        <activity
+            android:name=".suivantMvt"
+            android:parentActivityName=".PageAccueil" />
+        <activity
+            android:name=".suivantChoixMono"
+            android:parentActivityName=".PageAccueil" />
+        <activity android:name=".LauncherP2P"></activity>
     </application>
 
 </manifest>
