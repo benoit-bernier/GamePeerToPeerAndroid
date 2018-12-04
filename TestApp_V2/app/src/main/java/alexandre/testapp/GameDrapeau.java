@@ -1,6 +1,7 @@
 package alexandre.testapp;
 
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,11 +24,16 @@ public class GameDrapeau extends AppCompatActivity {
     private int compteur = -1;
     private int objectif_haut;
     private int objectif_bas;
+    private long debut,fin;
+    private String nameUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_join_the_cable);
+        Intent previousActivity = getIntent();
+        nameUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_MESSAGE);
+        debut=SystemClock.elapsedRealtime();
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
     }
 
@@ -100,7 +106,8 @@ public class GameDrapeau extends AppCompatActivity {
             if(verify()){
                 if (compteur == 3){
                     Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
-                    intent.putExtra(EXTRA_SCORE, -1);
+                    fin=SystemClock.elapsedRealtime();
+                    intent.putExtra(EXTRA_SCORE, (int)(fin-debut));
                     startActivity(intent);
                 } else{
                     compteur++;

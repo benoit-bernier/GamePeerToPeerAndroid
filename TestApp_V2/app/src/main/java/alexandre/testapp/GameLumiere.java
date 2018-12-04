@@ -41,10 +41,10 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
     }
 
     public void onSensorChanged(SensorEvent sensorEvent){
-        Log.d(TAG, "Puissance lumière : " + sensorEvent.values[0]);
+        //Log.d(TAG, "Puissance lumière : " + sensorEvent.values[0]);
         TextView xValues = findViewById(R.id.game_jeuduhulk);
         xValues.setText("IT'S OVER  " + sensorEvent.values[0] +" !!");
-        if (sensorEvent.values[0]>2000){
+        if (sensorEvent.values[0]>2500){
             fin = SystemClock.elapsedRealtime();
             Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
             intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);

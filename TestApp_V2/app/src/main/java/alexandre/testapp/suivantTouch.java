@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class suivantTouch extends AppCompatActivity {
     public static final String EXTRA_SCORE = "ScoreAfterTouch";
     int score;
@@ -19,15 +22,17 @@ public class suivantTouch extends AppCompatActivity {
         champs_score.setText("Votre score est de "+score);
     }
 
-    public void sendJEU1(View view) {
-        Intent intent = new Intent(this, GameLumiere.class);
-        intent.putExtra(EXTRA_SCORE, score);
-        startActivity(intent);
-    }
+    public void aleatGame(View view){
+        Random rand = new Random();
+        if (rand.nextInt(2)==0){ //nextInt(2) pour accéder au jeu peche aussi
+            Intent intent = new Intent(getApplicationContext(), GameLumiere.class);
+            intent.putExtra(EXTRA_SCORE, score);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(getApplicationContext(), GamePeche.class);
+            intent.putExtra(EXTRA_SCORE, score);
+            startActivity(intent);
+        }
 
-    public void sendJEU2(View view) {
-        Intent intent = new Intent(this, GamePeche.class);
-        intent.putExtra(EXTRA_SCORE, score);
-        startActivity(intent);
     }
 }

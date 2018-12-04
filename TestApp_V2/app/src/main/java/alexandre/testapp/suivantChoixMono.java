@@ -7,8 +7,12 @@ package alexandre.testapp;
         import android.view.View;
         import android.widget.TextView;
 
+        import java.util.Arrays;
+        import java.util.List;
+        import java.util.Random;
+
 public class suivantChoixMono extends AppCompatActivity {
-    //public static final String EXTRA_MESSAGE = "bzh.esir.iot.myapp.MESSAGE";
+    public static final String EXTRA_MESSAGE = "nomUSER";
     public String nameOfUser;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +26,11 @@ public class suivantChoixMono extends AppCompatActivity {
     }
 
     public void MonoSendJEU1(View view) {
-        Intent intent = new Intent(this, GameTapeLeClou.class);
-        //intent.putExtra(EXTRA_MESSAGE, nameOfUser);
-        startActivity(intent);
-    }
-
-    public void MonoSendJEU2(View view) {
-        Intent intent = new Intent(this, GameMorse.class);
-        //intent.putExtra(EXTRA_MESSAGE, nameOfUser);
-        startActivity(intent);
-    }
-
-    public  void MonoSendJEU3(View view){
-        Intent intent = new Intent(this, GameDrapeau.class);
-        //intent.putExtra(EXTRA_MESSAGE, nameOfUser);
+        List<Class<? extends android.support.v7.app.AppCompatActivity>> ClassList = Arrays.asList(GameTapeLeClou.class, GameMorse.class, GameDrapeau.class);
+        Random rand = new Random();
+        int nbr = rand.nextInt(ClassList.size());
+        Intent intent = new Intent(this, ClassList.get(nbr));
+        intent.putExtra(EXTRA_MESSAGE, nameOfUser);
         startActivity(intent);
     }
 }

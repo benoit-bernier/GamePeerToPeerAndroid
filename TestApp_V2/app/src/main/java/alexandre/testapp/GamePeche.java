@@ -33,7 +33,6 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
     private long debut,fin;
     private int scoreInit;
     private Handler myHandler;
-    MediaPlayer mediaPlayer = MediaPlayer.create(GamePeche.this, R.raw.waves);
 
     private Runnable myRunnable = new Runnable() {
         @Override
@@ -89,9 +88,13 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
                 fin=SystemClock.elapsedRealtime();
                 mediaPlayer.stop();
+                Log.d(TAG, "A");
                 Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
+                Log.d(TAG, "B");
                 intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
+                Log.d(TAG, "C");
                 startActivity(intent);
+                Log.d(TAG, "D");
 
             }
         }
@@ -120,6 +123,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
         accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         mSensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         Log.d(TAG, "onCreate: Initialisation OK !");
+        MediaPlayer mediaPlayer = MediaPlayer.create(GamePeche.this, R.raw.waves);
         mediaPlayer.start();
         //initialisation de la boucle tout les x millisecondes
         myHandler = new Handler();

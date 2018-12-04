@@ -24,7 +24,7 @@ public class suivantMvt extends AppCompatActivity{
     }
 
     public void SENSORsendQCM(View view) {
-        Intent intent = new Intent(this, GamePeche.class);
+        Intent intent = new Intent(this, QCMActivity.class);
         intent.putExtra(EXTRA_SCORE, score);
         startActivity(intent);
     }

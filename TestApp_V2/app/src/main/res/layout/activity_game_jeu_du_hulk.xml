@@ -40,7 +40,7 @@
         android:layout_height="123dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="BERNIER c'est endormi... Envoie un maximum de puissance pour le réveiller !"
+        android:text="Le navire est en détresse, trouve vite un moyen de l'éclairer"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/game_jeuduhulk"
         app:layout_constraintEnd_toEndOf="parent"
