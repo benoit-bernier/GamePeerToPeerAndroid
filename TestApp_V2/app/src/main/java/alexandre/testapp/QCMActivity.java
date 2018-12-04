@@ -63,7 +63,7 @@ public class QCMActivity extends AppCompatActivity {
         } else {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, (((int)(debut-fin))/scoreQCM)+score);
+            intent.putExtra(EXTRA_MESSAGE, (((int)(debut-fin))/(scoreQCM+1))+score);
             startActivity(intent);
         }
     }
