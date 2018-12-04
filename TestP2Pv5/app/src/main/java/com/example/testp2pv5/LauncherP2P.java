@@ -2,6 +2,7 @@ package com.example.testp2pv5;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.net.wifi.p2p.WifiP2pConfig;
@@ -21,7 +22,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -55,7 +55,7 @@ public class LauncherP2P extends AppCompatActivity {
 
     ServerClass serverClass;
     ClientClass clientClass;
-    SendReceive sendReceive;
+    public static SendReceive sendReceive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,12 @@ public class LauncherP2P extends AppCompatActivity {
         setContentView(R.layout.activity_launcher_p2_p);
         initialWork();
         exqListener();
+    }
+
+    /** Called when the user taps the "Mode solo" button */
+    public void sendNewPage(View view) {
+        Intent nextPage = new Intent(this, NextPageTest.class);
+        startActivity(nextPage);
     }
 
     Handler handler = new Handler(new Handler.Callback() {
@@ -236,7 +242,7 @@ public class LauncherP2P extends AppCompatActivity {
         }
     }
 
-    private class SendReceive extends Thread{
+    public class SendReceive extends Thread{
         private Socket socket;
         private InputStream inputStream;
         private OutputStream outputStream;

@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LauncherP2P"></activity>
+        <activity android:name=".LauncherP2P" />
+        <activity android:name=".NextPageTest"></activity>
     </application>
 
 </manifest>
