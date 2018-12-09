@@ -16,14 +16,23 @@ import java.util.Random;
 import static java.lang.Math.exp;
 
 public class GameTapeLeClou extends AppCompatActivity {
-    public static final String EXTRA_SCORE = "scoreTouch"; // NE PAS MODIFIER
+    public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_NOM = "nom";
 
+    private String nameOfUser;
+    private String choix;
 
     private int compteur = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent previousActivity = getIntent();
+        nameOfUser = previousActivity.getStringExtra("nom");
+        choix = previousActivity.getStringExtra("choix");
+
         setContentView(R.layout.activity_game_tape_le_clou);
         countDownTimer.start();
     }
@@ -33,9 +42,11 @@ public class GameTapeLeClou extends AppCompatActivity {
         }
 
         public void onFinish() {
-            Intent nextPage = new Intent(getApplicationContext(), suivantTouch.class);
-            nextPage.putExtra(EXTRA_SCORE, compteur);
-            startActivity(nextPage);
+            Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+            intent.putExtra(EXTRA_SCORE, compteur);
+            intent.putExtra(EXTRA_NOM, nameOfUser);
+            intent.putExtra(EXTRA_CHOIX, choix);
+            startActivity(intent);
         }
     };
 

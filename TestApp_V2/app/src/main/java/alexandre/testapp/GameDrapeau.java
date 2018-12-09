@@ -15,7 +15,9 @@ import java.util.Random;
 
 public class GameDrapeau extends AppCompatActivity {
 
-    public static final String EXTRA_SCORE = "scoreTouch"; // NE PAS MODIFIER
+    public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_NOM = "nom";
 
 
     private GestureDetectorCompat mDetector;
@@ -25,14 +27,19 @@ public class GameDrapeau extends AppCompatActivity {
     private int objectif_haut;
     private int objectif_bas;
     private long debut,fin;
-    private String nameUser;
+
+    private String nameOfUser;
+    public String choix;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_join_the_cable);
         Intent previousActivity = getIntent();
-        nameUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_MESSAGE);
+        nameOfUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_NOM);
+        choix = previousActivity.getStringExtra(suivantChoixMono.EXTRA_CHOIX);
+
         debut=SystemClock.elapsedRealtime();
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
     }
@@ -107,7 +114,9 @@ public class GameDrapeau extends AppCompatActivity {
                 if (compteur == 3){
                     Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                     fin=SystemClock.elapsedRealtime();
-                    intent.putExtra(EXTRA_SCORE, (int)(fin-debut));
+                    intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                    intent.putExtra(EXTRA_NOM, nameOfUser);
+                    intent.putExtra(EXTRA_CHOIX, choix);
                     startActivity(intent);
                 } else{
                     compteur++;

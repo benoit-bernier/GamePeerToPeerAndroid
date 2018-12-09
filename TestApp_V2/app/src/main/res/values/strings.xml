@@ -3,7 +3,7 @@
     <string name="button_send">Send</string>
     <string name="edit_name">Renseignez votre nom</string>
     <string name="user_name">Vous êtes :</string>
-    <string name="welcome">Bienvenue à BricoBernier</string>
+    <string name="welcome">Avez-vous le pied marin ?</string>
     <string name="button_unjoueur">Mode un joueur</string>
     <string name="button_multi">Mode multijoueur</string>
     <string name="button_apropos">A propos</string>

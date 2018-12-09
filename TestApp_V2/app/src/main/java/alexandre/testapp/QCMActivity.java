@@ -11,6 +11,8 @@ import android.widget.TextView;
 public class QCMActivity extends AppCompatActivity {
     private int scoreQCM = 0;
     private int score;
+    private String nameOfUser,choix;
+
     private long debut,fin;
     private final String[][] QuestionsReponses = new String[][]{
             new String[]{"Capitale de la France ?", "Paris", "Rennes", "Brest", "button4"},
@@ -18,7 +20,10 @@ public class QCMActivity extends AppCompatActivity {
             new String[]{"Une marée dure :", "5 heures", "6 heures", "8 heures", "button5"}
     };
     private int compteurQuestions = 0;
-    public static final String EXTRA_MESSAGE = "final_score";
+
+    public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_NOM = "nom";
 
 
     //@Override
@@ -29,6 +34,8 @@ public class QCMActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         score = intent.getIntExtra(suivantMvt.EXTRA_SCORE, 0);
+        nameOfUser = intent.getStringExtra(suivantMvt.EXTRA_NOM);
+        choix = intent.getStringExtra(suivantMvt.EXTRA_CHOIX);
         debut = SystemClock.elapsedRealtime();
     }
 
@@ -63,7 +70,10 @@ public class QCMActivity extends AppCompatActivity {
         } else {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, (((int)(debut-fin))/(scoreQCM+1))+score);
+            intent.putExtra(EXTRA_SCORE, (((int)(debut-fin))/(scoreQCM+1))+score);
+            intent.putExtra(EXTRA_NOM, nameOfUser);
+            // Vérif du choix ici, pour lancer l'activité adéquate.
+            intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
         }
     }

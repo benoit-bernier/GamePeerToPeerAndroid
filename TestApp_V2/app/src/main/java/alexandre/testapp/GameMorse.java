@@ -13,11 +13,17 @@ import android.widget.TextView;
 
 public class GameMorse extends AppCompatActivity {
 
+    public static final String EXTRA_NOM = "nom";
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_SCORE = "score";
+
     private GestureDetectorCompat mDetector;
-    private String DEBUG_TAG = "test_GameMorse";
     private final String message = "Message : ";
     private String morse = "";
-    public static final String EXTRA_SCORE = "scoreTouch"; // NE PAS MODIFIER
+
+    private String nameOfUser;
+    private String choix;
+
 
     private long debut, fin;
 
@@ -25,6 +31,11 @@ public class GameMorse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_morse);
+
+        Intent previousActivity = getIntent();
+        nameOfUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_NOM);
+        choix = previousActivity.getStringExtra("choix");
+
         mDetector = new GestureDetectorCompat(this, new GameMorse.MyGestureListener());
         debut=SystemClock.elapsedRealtime();
     }
@@ -56,6 +67,9 @@ public class GameMorse extends AppCompatActivity {
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                 intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                intent.putExtra(EXTRA_NOM, nameOfUser);
+                intent.putExtra(EXTRA_CHOIX, choix);
+
                 startActivity(intent);
             }
             return true;
@@ -72,7 +86,9 @@ public class GameMorse extends AppCompatActivity {
                 fin=SystemClock.elapsedRealtime();
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
-                intent.putExtra(EXTRA_SCORE, (int)(fin-debut));
+                intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                intent.putExtra(EXTRA_NOM, nameOfUser);
+                intent.putExtra(EXTRA_CHOIX, choix);
                 startActivity(intent);
             }
         }

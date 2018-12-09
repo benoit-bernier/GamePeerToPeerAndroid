@@ -9,8 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class PageAccueil extends AppCompatActivity {
-    public static final String EXTRA_NAME = "defaultName";
-    public String blabla;
+    public static final String EXTRA_NAME = "name";
+    public static final String EXTRA__CHOIX = "choix";
+    public String nom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,7 @@ public class PageAccueil extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent previousactivity = getIntent();
         String UserName = previousactivity.getStringExtra(EnterName.EXTRA_NAME);
-        blabla=UserName;
+        nom=UserName;
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView);
@@ -31,7 +32,8 @@ public class PageAccueil extends AppCompatActivity {
     public void sendSolo(View view) {
         Log.d("Page Acuueil", "working");
         Intent nextPage = new Intent(this, suivantChoixMono.class);
-        nextPage.putExtra(EXTRA_NAME, blabla);
+        nextPage.putExtra(EXTRA_NAME, nom);
+        nextPage.putExtra(EXTRA__CHOIX, "solo");
         startActivity(nextPage);
     }
 
@@ -44,6 +46,8 @@ public class PageAccueil extends AppCompatActivity {
     /** Called when the user taps the "Multijoueur button */
     public void sendMulti(View view) {
         Intent nextPage = new Intent(this, LauncherP2P.class);
+        nextPage.putExtra(EXTRA_NAME, nom);
+        nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
         startActivity(nextPage);
     }
 

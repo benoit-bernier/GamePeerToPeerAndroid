@@ -14,13 +14,16 @@ import android.widget.TextView;
 
 public class GameLumiere extends AppCompatActivity implements SensorEventListener {
 
-    private static final String TAG = "GameLumiere";
-    private static final String EXTRA_SCORE = "scoreAfterSensor";
+    public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_NOM = "nom";
+
+    private String nameOfUser, choix;
+
     private SensorManager mSensorManager;
     private Sensor myLight;
     private int scoreInit;
-    private long debut;
-    private long fin;
+    private long debut, fin;
 
 
     @Override
@@ -30,6 +33,9 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
 
         Intent previousActivity = getIntent();
         scoreInit = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
+        nameOfUser = previousActivity.getStringExtra(EXTRA_NOM);
+        choix = previousActivity.getStringExtra(EXTRA_CHOIX);
+
         debut=SystemClock.elapsedRealtime();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         myLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -48,6 +54,9 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
             fin = SystemClock.elapsedRealtime();
             Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
             intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
+            intent.putExtra(EXTRA_NOM, nameOfUser);
+            intent.putExtra(EXTRA_CHOIX, choix);
+
             startActivity(intent);
         }
     }

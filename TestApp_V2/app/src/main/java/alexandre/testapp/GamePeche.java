@@ -24,14 +24,20 @@ import static java.lang.Math.exp;
 public class GamePeche extends AppCompatActivity implements SensorEventListener {
 
     private static final String TAG = "GamePeche";
-    private static final String EXTRA_SCORE = "scoreAfterSensor";
+
+    public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_NOM = "nom";
+
     private SensorManager mSensorManager;
     private Sensor accelerometer;
+
+    private String nameOfUser, choix;
+    private int score;
 
     private boolean arme,capture, found = false;
     private int compteur =0;
     private long debut,fin;
-    private int scoreInit;
     private Handler myHandler;
 
     private Runnable myRunnable = new Runnable() {
@@ -88,14 +94,12 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
                 fin=SystemClock.elapsedRealtime();
                 mediaPlayer.stop();
-                Log.d(TAG, "A");
                 Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
-                Log.d(TAG, "B");
-                intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
-                Log.d(TAG, "C");
-                startActivity(intent);
-                Log.d(TAG, "D");
+                intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+score);
+                intent.putExtra(EXTRA_CHOIX, choix);
+                intent.putExtra(EXTRA_NOM, nameOfUser);
 
+                startActivity(intent);
             }
         }
     };
@@ -112,7 +116,9 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
         setContentView(R.layout.activity_game_jeu_du_niveau);
 
         Intent previousActivity = getIntent();
-        scoreInit = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
+        score = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
+        nameOfUser = previousActivity.getStringExtra(suivantTouch.EXTRA_NOM);
+        choix = previousActivity.getStringExtra(suivantTouch.EXTRA_CHOIX);
 
         debut=SystemClock.elapsedRealtime();
 
