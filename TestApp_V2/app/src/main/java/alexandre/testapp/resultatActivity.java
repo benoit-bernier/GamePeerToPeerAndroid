@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import static alexandre.testapp.LauncherP2P.MESSAGE_READ;
+
+
 public class resultatActivity extends AppCompatActivity{
     private int score;
     private String nameOfUser, choix;
