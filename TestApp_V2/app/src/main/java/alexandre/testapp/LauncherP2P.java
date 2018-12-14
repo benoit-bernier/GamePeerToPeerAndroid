@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,19 +63,30 @@ public class LauncherP2P extends AppCompatActivity {
     public static int compteur = 0; //permet de savoir combien de jeu ont été fait par l'opposant
     public static int mycompteur = 0;
 
+    public static final String EXTRA_NOM = "nom";
+    public static final String EXTRA_CHOIX = "choix";
+    public static final String EXTRA_SCORE = "score";
+    private String nameOfUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher_p2_p);
         initialWork();
         exqListener();
+        Intent previousActivity = getIntent();
+        nameOfUser = previousActivity.getStringExtra(PageAccueil.EXTRA_NOM);
+
     }
 
     /** Called when the user taps the "Mode solo" button */
 
     public void sendNewPage(View view) {
-        //Intent nextPage = new Intent(this, NextPageTest.class);
-        //startActivity(nextPage);
+        Intent nextPage = new Intent(this, suivantChoixMono.class);
+        nextPage.putExtra(EXTRA_CHOIX, "multijoueur");
+        nextPage.putExtra(EXTRA_NOM, nameOfUser);
+        nextPage.putExtra(EXTRA_SCORE, 0);
+        startActivity(nextPage);
     }
 
 
@@ -86,8 +98,10 @@ public class LauncherP2P extends AppCompatActivity {
                     byte[] readBuff = (byte[]) msg.obj;
                     String tempMsg = new String(readBuff, 0, msg.arg1);
                     compteur++;
-                    opponentScore = opponentScore + Integer.parseInt(tempMsg);
-                    read_msg_box.setText(String.valueOf(opponentScore));
+                    //opponentScore = opponentScore + Integer.parseInt(tempMsg);
+                    Log.d("score", tempMsg);
+                    Toast.makeText(getApplicationContext(), "Votre score est de : " +tempMsg, Toast.LENGTH_SHORT).show();
+                    read_msg_box.setText("blabla");
                     myscore_box.setText(String.valueOf(myScore));
                     compteur_box.setText(String.valueOf(compteur));
                     if(compteur == 3){

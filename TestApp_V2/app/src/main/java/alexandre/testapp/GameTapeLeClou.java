@@ -22,6 +22,7 @@ public class GameTapeLeClou extends AppCompatActivity {
 
     private String nameOfUser;
     private String choix;
+    TextView mTextField;
 
     private int compteur = 0;
 
@@ -35,10 +36,12 @@ public class GameTapeLeClou extends AppCompatActivity {
 
         setContentView(R.layout.activity_game_tape_le_clou);
         countDownTimer.start();
+        mTextField = findViewById(R.id.textView6);
     }
 
     final CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
         public void onTick(long millisUntilFinished) {
+            mTextField.setText("Temps restant : " + millisUntilFinished / 1000);
         }
 
         public void onFinish() {
