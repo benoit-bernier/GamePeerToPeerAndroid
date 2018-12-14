@@ -46,8 +46,6 @@ public class PageAccueil extends AppCompatActivity {
     /** Called when the user taps the "Multijoueur button */
     public void sendMulti(View view) {
         Intent nextPage = new Intent(this, LauncherP2P.class);
-        nextPage.putExtra(EXTRA_NAME, nom);
-        nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
         startActivity(nextPage);
     }
 

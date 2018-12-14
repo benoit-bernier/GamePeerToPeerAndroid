@@ -3,14 +3,18 @@ package alexandre.testapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import static alexandre.testapp.LauncherP2P.MESSAGE_READ;
-
-
 public class resultatActivity extends AppCompatActivity{
+
+    public static final String EXTRA_NAME = "name";
+    public static final String EXTRA__CHOIX = "choix";
     private int score;
     private String nameOfUser, choix;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,5 +30,28 @@ public class resultatActivity extends AppCompatActivity{
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView4);
         textView.setText("Bravo "+nameOfUser+", votre score est de "+score+" en mode "+choix);
+
+        final TextView textView2 = findViewById(R.id.textView12);
+
+        final Button button = findViewById(R.id.button8);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                textView2.setText(LauncherP2P.opponentScore);
+                String msg = String.valueOf(score);
+                Log.d("--------------", "onClick: " + msg);
+                LauncherP2P.sendReceive.write(msg.getBytes());
+            }
+        });
+
     }
+
+    public void sendNew(View view) {
+        Intent nextPage = new Intent(this, suivantChoixMono.class);
+        nextPage.putExtra(EXTRA_NAME, "test P2P");
+        nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
+        LauncherP2P.opponentScore = "pas de score";
+        LauncherP2P.myScore = 0;
+        startActivity(nextPage);
+    }
+
 }

@@ -36,6 +36,7 @@ public class suivantChoixMono extends AppCompatActivity {
         Intent intent = new Intent(this, ClassList.get(nbr));
         intent.putExtra(EXTRA_NOM, nameOfUser);
         intent.putExtra(EXTRA_CHOIX, choix);
-
+        intent.putExtra(EXTRA_SCORE, 0);
+        startActivity(intent);
     }
 }

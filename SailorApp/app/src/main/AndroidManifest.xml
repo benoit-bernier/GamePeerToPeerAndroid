@@ -120,7 +120,6 @@
             android:name=".suivantChoixMono"
             android:parentActivityName=".PageAccueil" />
         <activity android:name=".LauncherP2P" />
-        <activity android:name=".sailorapp.kjnkbbkbn"></activity>
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@ public class suivantTouch extends AppCompatActivity {
     }
 
     public void aleatGame(View view){
-        Random rand = new Random();
+        /*Random rand = new Random();
         if (rand.nextInt(2)==0){ //nextInt(2) pour accéder au jeu peche aussi
             Intent intent = new Intent(getApplicationContext(), GameLumiere.class);
             intent.putExtra(EXTRA_SCORE, score);
@@ -46,6 +46,14 @@ public class suivantTouch extends AppCompatActivity {
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
         }
+        */
+
+        Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
+        intent.putExtra(EXTRA_SCORE, score);
+        intent.putExtra(EXTRA_NOM, nameOfUser);
+        intent.putExtra(EXTRA_CHOIX, choix);
+
+        startActivity(intent);
 
     }
 }

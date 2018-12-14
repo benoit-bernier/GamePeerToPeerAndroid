@@ -34,10 +34,12 @@ import java.util.List;
 
 public class LauncherP2P extends AppCompatActivity {
 
+    public static final String EXTRA_NAME = "name";
+    public static final String EXTRA__CHOIX = "choix";
 
     Button btnOnOff, btnDiscover, btnSend;
     ListView listView;
-    TextView read_msg_box, myscore_box, compteur_box, connectionStatus;
+    TextView read_msg_box, connectionStatus;
     EditText writeMsg;
 
     WifiManager wifiManager;
@@ -57,10 +59,8 @@ public class LauncherP2P extends AppCompatActivity {
     ClientClass clientClass;
     public static SendReceive sendReceive;
 
-    public static int opponentScore = 0;
+    public static String opponentScore = "pas de score";
     public static int myScore = 0;
-    public static int compteur = 0; //permet de savoir combien de jeu ont été fait par l'opposant
-    public static int mycompteur = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +70,13 @@ public class LauncherP2P extends AppCompatActivity {
         exqListener();
     }
 
-    /** Called when the user taps the "Mode solo" button */
-
     public void sendNewPage(View view) {
-        //Intent nextPage = new Intent(this, NextPageTest.class);
-        //startActivity(nextPage);
+        Intent nextPage = new Intent(this, suivantChoixMono.class);
+        nextPage.putExtra(EXTRA_NAME, "test P2P");
+        nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
+        opponentScore = "pas de score";
+        myScore = 0;
+        startActivity(nextPage);
     }
 
     Handler handler = new Handler(new Handler.Callback() {
@@ -84,16 +86,7 @@ public class LauncherP2P extends AppCompatActivity {
                 case MESSAGE_READ:
                     byte[] readBuff = (byte[]) msg.obj;
                     String tempMsg = new String(readBuff, 0, msg.arg1);
-                    compteur++;
-                    opponentScore = opponentScore + Integer.parseInt(tempMsg);
-                    read_msg_box.setText(String.valueOf(opponentScore));
-                    myscore_box.setText(String.valueOf(myScore));
-                    compteur_box.setText(String.valueOf(compteur));
-                    if(compteur == 3){
-                        compteur_box.setText("3 jeux fait !");
-                    } else {
-                        compteur_box.setText(String.valueOf(compteur));
-                    }
+                    opponentScore = tempMsg;
                     break;
             }
             return true;
@@ -167,8 +160,6 @@ public class LauncherP2P extends AppCompatActivity {
         btnSend = findViewById(R.id.sendButton);
         listView = findViewById(R.id.peerListView);
         read_msg_box = findViewById(R.id.readMsg);
-        myscore_box = findViewById(R.id.readMsg2);
-        compteur_box = findViewById(R.id.readMsg3);
         connectionStatus = findViewById(R.id.connectionStatus);
         writeMsg = findViewById(R.id.writeMsg);
 
