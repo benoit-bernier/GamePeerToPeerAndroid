@@ -251,7 +251,7 @@ public class LauncherP2P extends AppCompatActivity {
                 inputStream = socket.getInputStream();
                 outputStream = socket.getOutputStream();
             } catch (IOException e){
-                e.printStackTrace();;
+                e.printStackTrace();
             }
         }
 
@@ -273,7 +273,7 @@ public class LauncherP2P extends AppCompatActivity {
         }
 
         public void write (final byte[] bytes){
-            new Thread(new Runnable(){ @Override public void run() { try { outputStream.write(bytes); } catch (IOException e) { e.printStackTrace(); } } }).start();
+            new Thread(new Runnable(){ @Override public void run() { try { outputStream.write(bytes); } catch (IOException e) { e.printStackTrace();  } } }).start();
         }
     }
 
