@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="alexandre.testapp">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_bachi"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_bachi_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".EnterName">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PageAccueil"
+            android:parentActivityName=".EnterName">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".EnterName" />
+        </activity>
+        <activity
+            android:name=".LauncherGame"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".APropos"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".GameTapeLeClou"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".GameDrapeau"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".GamePeche"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".GameLumiere"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".GameMorse"
+            android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".QCMActivity"
+            android:parentActivityName=".PageAccueil">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".resultatActivity"
+            android:parentActivityName=".PageAccueil">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
+        </activity>
+        <activity
+            android:name=".suivantTouch"
+            android:parentActivityName=".PageAccueil" />
+        <activity
+            android:name=".suivantMvt"
+            android:parentActivityName=".PageAccueil" />
+        <activity
+            android:name=".suivantChoixMono"
+            android:parentActivityName=".PageAccueil" />
+        <activity android:name=".LauncherP2P" />
+        <activity android:name=".sailorapp.kjnkbbkbn"></activity>
+    </application>
+
+</manifest>
