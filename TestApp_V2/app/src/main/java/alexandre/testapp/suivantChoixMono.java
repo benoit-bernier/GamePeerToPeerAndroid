@@ -23,7 +23,7 @@ public class suivantChoixMono extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suivant_choix_mono);
         Intent previousActivity = getIntent();
-        nameOfUser = previousActivity.getStringExtra(PageAccueil.EXTRA_NAME);
+        nameOfUser = previousActivity.getStringExtra(PageAccueil.EXTRA_NOM);
         choix = previousActivity.getStringExtra("choix");
         TextView textView = findViewById(R.id.textViewName);
         textView.setText("Bienvenue "+nameOfUser+", vous avez choisi le mode "+choix);
