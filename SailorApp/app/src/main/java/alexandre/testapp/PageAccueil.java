@@ -47,6 +47,7 @@ public class PageAccueil extends AppCompatActivity {
     public void sendMulti(View view) {
         Intent nextPage = new Intent(this, LauncherP2P.class);
         startActivity(nextPage);
+
     }
 
 

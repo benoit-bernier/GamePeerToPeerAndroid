@@ -54,4 +54,11 @@ public class resultatActivity extends AppCompatActivity{
         startActivity(nextPage);
     }
 
+    public void sendAccueil(View view) {
+        Intent nextPage2 = new Intent(this, LauncherP2P.class);
+
+        Intent nextPage = new Intent(this, PageAccueil.class);
+        startActivity(nextPage);
+    }
+
 }

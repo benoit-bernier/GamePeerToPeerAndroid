@@ -106,6 +106,8 @@
         <activity
             android:name=".resultatActivity"
             android:parentActivityName=".PageAccueil">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PageAccueil" />
@@ -119,7 +121,14 @@
         <activity
             android:name=".suivantChoixMono"
             android:parentActivityName=".PageAccueil" />
-        <activity android:name=".LauncherP2P" />
+        <activity android:name=".LauncherP2P"
+            android:parentActivityName=".PageAccueil">
+
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".PageAccueil" />
+        </activity>
     </application>
 
 </manifest>

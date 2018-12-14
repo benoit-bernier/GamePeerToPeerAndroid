@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,10 +38,9 @@ public class LauncherP2P extends AppCompatActivity {
     public static final String EXTRA_NAME = "name";
     public static final String EXTRA__CHOIX = "choix";
 
-    Button btnOnOff, btnDiscover, btnSend;
+    Button btnOnOff, btnDiscover;
     ListView listView;
-    TextView read_msg_box, connectionStatus;
-    EditText writeMsg;
+    TextView connectionStatus;
 
     WifiManager wifiManager;
     WifiP2pManager mManager;
@@ -77,6 +77,7 @@ public class LauncherP2P extends AppCompatActivity {
         opponentScore = "pas de score";
         myScore = 0;
         startActivity(nextPage);
+
     }
 
     Handler handler = new Handler(new Handler.Callback() {
@@ -144,24 +145,13 @@ public class LauncherP2P extends AppCompatActivity {
                 });
             }
         });
-
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String msg = writeMsg.getText().toString();
-                sendReceive.write(msg.getBytes());
-            }
-        });
     }
 
     private void initialWork(){
         btnOnOff = findViewById(R.id.onOff);
         btnDiscover = findViewById(R.id.discover);
-        btnSend = findViewById(R.id.sendButton);
         listView = findViewById(R.id.peerListView);
-        read_msg_box = findViewById(R.id.readMsg);
         connectionStatus = findViewById(R.id.connectionStatus);
-        writeMsg = findViewById(R.id.writeMsg);
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
