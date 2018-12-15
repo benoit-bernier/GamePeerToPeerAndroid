@@ -8,7 +8,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class EnterName extends AppCompatActivity {
-    public static final String EXTRA_NAME = "default_name";
+
+    public static String myName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ public class EnterName extends AppCompatActivity {
         if (nameToPrint.matches("")){
             Toast.makeText(getApplicationContext(), "Vous devez renseigner un nom !", Toast.LENGTH_SHORT).show();
         }else{
-            nextPage.putExtra(EXTRA_NAME, nameToPrint);
+            myName = nameToPrint;
             startActivity(nextPage);
         }
     }

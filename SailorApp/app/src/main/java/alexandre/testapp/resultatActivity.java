@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class resultatActivity extends AppCompatActivity{
 
-    public static final String EXTRA_NAME = "name";
     public static final String EXTRA__CHOIX = "choix";
     private int score;
     private String nameOfUser, choix;
@@ -47,7 +46,6 @@ public class resultatActivity extends AppCompatActivity{
 
     public void sendNew(View view) {
         Intent nextPage = new Intent(this, suivantChoixMono.class);
-        nextPage.putExtra(EXTRA_NAME, "test P2P");
         nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
         LauncherP2P.opponentScore = "pas de score";
         LauncherP2P.myScore = 0;

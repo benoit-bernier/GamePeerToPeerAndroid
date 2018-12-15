@@ -16,7 +16,6 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
 
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
-    public static final String EXTRA_NOM = "nom";
 
     private String nameOfUser, choix;
 
@@ -33,7 +32,6 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
 
         Intent previousActivity = getIntent();
         scoreInit = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
-        nameOfUser = previousActivity.getStringExtra(EXTRA_NOM);
         choix = previousActivity.getStringExtra(EXTRA_CHOIX);
 
         debut=SystemClock.elapsedRealtime();
@@ -54,7 +52,6 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
             fin = SystemClock.elapsedRealtime();
             Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
             intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
-            intent.putExtra(EXTRA_NOM, nameOfUser);
             intent.putExtra(EXTRA_CHOIX, choix);
 
             startActivity(intent);

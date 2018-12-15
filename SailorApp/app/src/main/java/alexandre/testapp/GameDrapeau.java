@@ -17,7 +17,6 @@ public class GameDrapeau extends AppCompatActivity {
 
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
-    public static final String EXTRA_NOM = "nom";
 
 
     private GestureDetectorCompat mDetector;
@@ -37,7 +36,6 @@ public class GameDrapeau extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_join_the_cable);
         Intent previousActivity = getIntent();
-        nameOfUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_NOM);
         choix = previousActivity.getStringExtra(suivantChoixMono.EXTRA_CHOIX);
 
         debut=SystemClock.elapsedRealtime();
@@ -115,7 +113,6 @@ public class GameDrapeau extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                     fin=SystemClock.elapsedRealtime();
                     intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
-                    intent.putExtra(EXTRA_NOM, nameOfUser);
                     intent.putExtra(EXTRA_CHOIX, choix);
                     startActivity(intent);
                 } else{

@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class GameMorse extends AppCompatActivity {
 
-    public static final String EXTRA_NOM = "nom";
     public static final String EXTRA_CHOIX = "choix";
     public static final String EXTRA_SCORE = "score";
 
@@ -21,7 +20,6 @@ public class GameMorse extends AppCompatActivity {
     private final String message = "Message : ";
     private String morse = "";
 
-    private String nameOfUser;
     private String choix;
 
 
@@ -33,7 +31,6 @@ public class GameMorse extends AppCompatActivity {
         setContentView(R.layout.activity_game_morse);
 
         Intent previousActivity = getIntent();
-        nameOfUser = previousActivity.getStringExtra(suivantChoixMono.EXTRA_NOM);
         choix = previousActivity.getStringExtra("choix");
 
         mDetector = new GestureDetectorCompat(this, new GameMorse.MyGestureListener());
@@ -67,7 +64,6 @@ public class GameMorse extends AppCompatActivity {
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                 intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
-                intent.putExtra(EXTRA_NOM, nameOfUser);
                 intent.putExtra(EXTRA_CHOIX, choix);
 
                 startActivity(intent);
@@ -87,7 +83,6 @@ public class GameMorse extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
                 intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
-                intent.putExtra(EXTRA_NOM, nameOfUser);
                 intent.putExtra(EXTRA_CHOIX, choix);
                 startActivity(intent);
             }

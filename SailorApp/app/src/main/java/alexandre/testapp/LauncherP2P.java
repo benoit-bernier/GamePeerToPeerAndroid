@@ -35,7 +35,6 @@ import java.util.List;
 
 public class LauncherP2P extends AppCompatActivity {
 
-    public static final String EXTRA_NAME = "name";
     public static final String EXTRA__CHOIX = "choix";
 
     Button btnOnOff, btnDiscover;
@@ -72,7 +71,6 @@ public class LauncherP2P extends AppCompatActivity {
 
     public void sendNewPage(View view) {
         Intent nextPage = new Intent(this, suivantChoixMono.class);
-        nextPage.putExtra(EXTRA_NAME, "test P2P");
         nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
         opponentScore = "pas de score";
         myScore = 0;

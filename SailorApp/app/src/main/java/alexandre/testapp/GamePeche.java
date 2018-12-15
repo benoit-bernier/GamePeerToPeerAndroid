@@ -27,12 +27,11 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
-    public static final String EXTRA_NOM = "nom";
 
     private SensorManager mSensorManager;
     private Sensor accelerometer;
 
-    private String nameOfUser, choix;
+    private String choix;
     private int score;
 
     private boolean arme,capture, found = false;
@@ -96,7 +95,6 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
                 Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
                 intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+score);
                 intent.putExtra(EXTRA_CHOIX, choix);
-                intent.putExtra(EXTRA_NOM, nameOfUser);
 
                 startActivity(intent);
             }
@@ -116,7 +114,6 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
         Intent previousActivity = getIntent();
         score = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
-        nameOfUser = previousActivity.getStringExtra(suivantTouch.EXTRA_NOM);
         choix = previousActivity.getStringExtra(suivantTouch.EXTRA_CHOIX);
 
         debut=SystemClock.elapsedRealtime();

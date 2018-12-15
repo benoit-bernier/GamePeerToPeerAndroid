@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class QCMActivity extends AppCompatActivity {
     private int scoreQCM = 0;
     private int score;
-    private String nameOfUser,choix;
+    private String choix;
 
     private long debut,fin;
     private final String[][] QuestionsReponses = new String[][]{
@@ -34,7 +34,6 @@ public class QCMActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         score = intent.getIntExtra(suivantMvt.EXTRA_SCORE, 0);
-        nameOfUser = intent.getStringExtra(suivantMvt.EXTRA_NOM);
         choix = intent.getStringExtra(suivantMvt.EXTRA_CHOIX);
         debut = SystemClock.elapsedRealtime();
     }
@@ -71,7 +70,6 @@ public class QCMActivity extends AppCompatActivity {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
             intent.putExtra(EXTRA_SCORE, (((int)(debut-fin))/(scoreQCM+1))+score);
-            intent.putExtra(EXTRA_NOM, nameOfUser);
             // Vérif du choix ici, pour lancer l'activité adéquate.
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);

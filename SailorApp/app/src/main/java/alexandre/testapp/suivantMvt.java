@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class suivantMvt extends AppCompatActivity{
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
-    public static final String EXTRA_NOM = "nom";    int score;
+    int score;
     private String nameOfUser, choix;
 
     @Override
@@ -21,7 +21,6 @@ public class suivantMvt extends AppCompatActivity{
         Intent intent = getIntent();
         score = intent.getIntExtra(EXTRA_SCORE, 0);
         choix=intent.getStringExtra(EXTRA_CHOIX);
-        nameOfUser=intent.getStringExtra(EXTRA_NOM);
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView11);
@@ -31,7 +30,6 @@ public class suivantMvt extends AppCompatActivity{
     public void SENSORsendQCM(View view) {
         Intent intent = new Intent(this, QCMActivity.class);
         intent.putExtra(EXTRA_SCORE, score);
-        intent.putExtra(EXTRA_NOM, nameOfUser);
         intent.putExtra(EXTRA_CHOIX, choix);
         startActivity(intent);
     }
