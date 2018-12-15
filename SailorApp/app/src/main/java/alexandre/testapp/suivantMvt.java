@@ -10,7 +10,7 @@ public class suivantMvt extends AppCompatActivity{
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
     int score;
-    private String nameOfUser, choix;
+    private String choix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

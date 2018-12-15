@@ -12,7 +12,7 @@ public class resultatActivity extends AppCompatActivity{
 
     public static final String EXTRA__CHOIX = "choix";
     private int score;
-    private String nameOfUser, choix;
+    private String choix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +23,11 @@ public class resultatActivity extends AppCompatActivity{
         Intent intent = getIntent();
 
         score = intent.getIntExtra(QCMActivity.EXTRA_SCORE, -1);
-        nameOfUser = intent.getStringExtra(QCMActivity.EXTRA_NOM);
         choix = intent.getStringExtra(QCMActivity.EXTRA_CHOIX);
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView4);
-        textView.setText("Bravo "+nameOfUser+", votre score est de "+score+" en mode "+choix);
+        textView.setText("Bravo "+EnterName.myName+", votre score est de "+score+" en mode "+choix);
 
         final TextView textView2 = findViewById(R.id.textView12);
 
@@ -39,7 +38,11 @@ public class resultatActivity extends AppCompatActivity{
                 if(choix.equals("multijoueur")){
                     textView2.setText(LauncherP2P.opponentScore);
                     String msg = String.valueOf(score);
-                    LauncherP2P.sendReceive.write(msg.getBytes());
+                    try {
+                        LauncherP2P.sendReceive.write(msg.getBytes());
+                    } catch (NullPointerException e) {
+                        textView2.setText("Oups !");
+                    }
                 } else {
                     textView2.setText("Vous êtes en solo !");
                 }
@@ -51,15 +54,13 @@ public class resultatActivity extends AppCompatActivity{
 
     public void sendNew(View view) {
         Intent nextPage = new Intent(this, suivantChoixMono.class);
-        nextPage.putExtra(EXTRA__CHOIX, "multijoueur");
+        nextPage.putExtra(EXTRA__CHOIX, choix);
         LauncherP2P.opponentScore = "pas de score";
         LauncherP2P.myScore = 0;
         startActivity(nextPage);
     }
 
     public void sendAccueil(View view) {
-        Intent nextPage2 = new Intent(this, LauncherP2P.class);
-
         Intent nextPage = new Intent(this, PageAccueil.class);
         startActivity(nextPage);
     }
