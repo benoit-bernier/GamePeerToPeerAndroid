@@ -24,7 +24,6 @@ public class PageAccueil extends AppCompatActivity {
 
     /** Called when the user taps the "Mode solo" button */
     public void sendSolo(View view) {
-        Log.d("Page Acuueil", "working");
         Intent nextPage = new Intent(this, suivantChoixMono.class);
         nextPage.putExtra(EXTRA__CHOIX, "solo");
         startActivity(nextPage);
