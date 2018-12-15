@@ -35,10 +35,15 @@ public class resultatActivity extends AppCompatActivity{
         final Button button = findViewById(R.id.button8);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                textView2.setText(LauncherP2P.opponentScore);
-                String msg = String.valueOf(score);
-                Log.d("--------------", "onClick: " + msg);
-                LauncherP2P.sendReceive.write(msg.getBytes());
+                Log.d("-----------------", "onClick: " + choix);
+                if(choix.equals("multijoueur")){
+                    textView2.setText(LauncherP2P.opponentScore);
+                    String msg = String.valueOf(score);
+                    LauncherP2P.sendReceive.write(msg.getBytes());
+                } else {
+                    textView2.setText("Vous êtes en solo !");
+                }
+
             }
         });
 
