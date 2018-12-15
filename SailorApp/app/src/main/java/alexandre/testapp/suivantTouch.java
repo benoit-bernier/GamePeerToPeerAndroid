@@ -26,7 +26,7 @@ public class suivantTouch extends AppCompatActivity {
         choix = previousActivity.getStringExtra("choix");
 
         TextView champs_score= findViewById(R.id.scoreTempTouch);
-        champs_score.setText("Votre score est de "+score);
+        champs_score.setText("Votre score provisoire est de "+score+" points");
     }
 
     public void aleatGame(View view){

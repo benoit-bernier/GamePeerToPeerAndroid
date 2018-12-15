@@ -19,13 +19,11 @@ public class PageAccueil extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView);
-        //textView.setText(UserName);
         textView.setText(EnterName.myName);
     }
 
     /** Called when the user taps the "Mode solo" button */
     public void sendSolo(View view) {
-        Log.d("Page Acuueil", "working");
         Intent nextPage = new Intent(this, suivantChoixMono.class);
         nextPage.putExtra(EXTRA_CHOIX, "solo");
         startActivity(nextPage);
