@@ -4,31 +4,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_treasure">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:text="blaov"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/tableLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:alpha="0.7"
+        android:background="#000000"
+        android:gravity="center"
+        android:text="blaov"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Resultats"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:background="#000000"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:stretchColumns="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/result">
 
         <TableRow>
 
@@ -37,14 +49,16 @@
                 android:layout_width="111dp"
                 android:layout_height="wrap_content"
                 android:text="Date"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_column="1"
                 android:padding="3dip"
                 android:text="Joueur"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,7 +66,8 @@
                 android:padding="3dip"
                 android:text="Score"
                 android:textAlignment="viewStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@android:color/background_light" />
         </TableRow>
 
         <View
@@ -63,18 +78,21 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Hier, 15:27" />
+                android:text="Hier, 15:27"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:padding="3dip"
-                android:text="Charles-Eric" />
+                android:text="Charles-Eric"
+                android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/score1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="826"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/background_light" />
         </TableRow>
 
         <TableRow
@@ -83,18 +101,21 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Hier, 17:32" />
+                android:text="Hier, 17:32"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:padding="3dip"
-                android:text="Piñata" />
+                android:text="Piñata"
+                android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/score2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/background_light" />
         </TableRow>
 
         <TableRow
@@ -103,18 +124,21 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Hier, 15:27" />
+                android:text="Hier, 15:27"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:padding="3dip"
-                android:text="Charles-Eric" />
+                android:text="Charles-Eric"
+                android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/score3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="634"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/background_light" />
         </TableRow>
 
         <TableRow
@@ -123,20 +147,34 @@
 
             <TextView
                 android:padding="3dip"
-                android:text="Hier, 15:27" />
+                android:text="Hier, 15:27"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:padding="3dip"
-                android:text="Patrick" />
+                android:text="Patrick"
+                android:textColor="@android:color/background_light" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/score4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="345"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textColor="@android:color/background_light" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historique"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/Resultats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 </android.support.constraint.ConstraintLayout>
