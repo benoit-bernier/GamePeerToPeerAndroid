@@ -24,7 +24,7 @@ public class suivantMvt extends AppCompatActivity{
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView11);
-        textView.setText("Votre score provisoire est de "+score);
+        textView.setText("Votre score provisoire est de "+score+" points");
     }
 
     public void SENSORsendQCM(View view) {

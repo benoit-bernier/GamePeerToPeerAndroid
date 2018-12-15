@@ -34,8 +34,8 @@
     <string name="game_decode_2">X</string>
     <string name="game_decode_3">X</string>
     <string name="game_jeuduniveau_text">Utilise ta canne à pêche !</string>
-    <string name="choose_game">Es-tu vraiment prêt ?</string>
-    <string name="QCMButton">Commencer</string>
+    <string name="choose_game">Allez-vous relever tous les défis ?</string>
+    <string name="launch_qcm">On passe à la suite ?</string>
     <string name="StringQCM" />
     <string name="button_entrainement">Entraînement</string>
 </resources>

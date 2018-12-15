@@ -27,7 +27,7 @@ public class resultatActivity extends AppCompatActivity{
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView4);
-        textView.setText("Bravo "+EnterName.myName+", votre score est de "+score+" en mode "+choix);
+        textView.setText("Bravo "+EnterName.myName+", votre score est de "+score+" points en mode "+choix);
 
         final TextView textView2 = findViewById(R.id.textView12);
 
