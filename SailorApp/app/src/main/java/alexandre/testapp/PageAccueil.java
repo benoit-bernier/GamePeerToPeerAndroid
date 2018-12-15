@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class PageAccueil extends AppCompatActivity {
 
-    public static final String EXTRA__CHOIX = "choix";
+    public static final String EXTRA_CHOIX = "choix";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class PageAccueil extends AppCompatActivity {
     /** Called when the user taps the "Mode solo" button */
     public void sendSolo(View view) {
         Intent nextPage = new Intent(this, suivantChoixMono.class);
-        nextPage.putExtra(EXTRA__CHOIX, "solo");
+        nextPage.putExtra(EXTRA_CHOIX, "solo");
         startActivity(nextPage);
     }
 
@@ -39,7 +39,12 @@ public class PageAccueil extends AppCompatActivity {
     public void sendMulti(View view) {
         Intent nextPage = new Intent(this, LauncherP2P.class);
         startActivity(nextPage);
+    }
 
+    public void sendEntrainement(View view){
+        Intent nextPage = new Intent(this, LauncherGame.class);
+        nextPage.putExtra(EXTRA_CHOIX, "entrainement");
+        startActivity(nextPage);
     }
 
 
