@@ -3,6 +3,7 @@ package alexandre.testapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,9 @@ public class QCMActivity extends AppCompatActivity {
         score = intent.getIntExtra(suivantMvt.EXTRA_SCORE, 0);
         choix = intent.getStringExtra(suivantMvt.EXTRA_CHOIX);
         debut = SystemClock.elapsedRealtime();
+
+        DialogFragment dialog = new RuleQCM();
+        dialog.show(getSupportFragmentManager(), "RuleQCM");
     }
 
 

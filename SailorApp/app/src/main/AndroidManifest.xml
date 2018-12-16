@@ -53,56 +53,22 @@
                 android:value=".PageAccueil" />
         </activity>
         <activity
-            android:name=".GameTapeLeClou"
-            android:parentActivityName=".PageAccueil">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".GameTapeLeClou">
         </activity>
         <activity
-            android:name=".GameDrapeau"
-            android:parentActivityName=".PageAccueil">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".GameDrapeau">
         </activity>
         <activity
-            android:name=".GamePeche"
-            android:parentActivityName=".PageAccueil">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".GamePeche">/>
         </activity>
         <activity
-            android:name=".GameLumiere"
-            android:parentActivityName=".PageAccueil">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".GameLumiere">
         </activity>
         <activity
-            android:name=".GameMorse"
-            android:parentActivityName=".PageAccueil">
-
-            <!-- The meta-data tag is required if you support API level 15 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".GameMorse">
         </activity>
         <activity
-            android:name=".QCMActivity"
-            android:parentActivityName=".PageAccueil">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".PageAccueil" />
+            android:name=".QCMActivity">
         </activity>
         <activity
             android:name=".resultatActivity"
@@ -124,11 +90,10 @@
             android:parentActivityName=".PageAccueil" />
         <activity android:name=".LauncherP2P"
             android:parentActivityName=".PageAccueil">
-
-        <!-- The meta-data tag is required if you support API level 15 and lower -->
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".PageAccueil" />
+             <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PageAccueil" />
         </activity>
     </application>
 
