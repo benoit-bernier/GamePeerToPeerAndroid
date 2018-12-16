@@ -110,7 +110,7 @@ public class GameDrapeau extends AppCompatActivity {
 
             if(verify()){
                 if (compteur == 3){
-                    Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+                    Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
                     fin=SystemClock.elapsedRealtime();
                     intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
                     intent.putExtra(EXTRA_CHOIX, choix);

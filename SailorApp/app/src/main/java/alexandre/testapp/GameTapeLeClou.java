@@ -37,7 +37,7 @@ public class GameTapeLeClou extends AppCompatActivity {
         }
 
         public void onFinish() {
-            Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+            Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
             intent.putExtra(EXTRA_SCORE, compteur);
             intent.putExtra(EXTRA_CHOIX, choix);
             mediaPlayer.stop();
@@ -47,11 +47,10 @@ public class GameTapeLeClou extends AppCompatActivity {
 
     /** Called when the hammer is pressed */
     public void imagePressed(View view) {
+        mediaPlayer = MediaPlayer.create(GameTapeLeClou.this, R.raw.marteau);
+        mediaPlayer.start();
         if (compteur == 0){
             countDownTimer.start();
-            mediaPlayer = MediaPlayer.create(GameTapeLeClou.this, R.raw.marteau);
-            mediaPlayer.start();
-            mediaPlayer.setLooping(true);
         }
         compteur++;
         TextView score = findViewById(R.id.game_tapeleclou_score);
