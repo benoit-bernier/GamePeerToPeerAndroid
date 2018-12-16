@@ -65,6 +65,9 @@ public class resultatActivity extends AppCompatActivity{
                     }
                 }
             });
+        } else {
+            mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.clapping);
+            mediaPlayer.start();
         }
     }
 
