@@ -32,23 +32,18 @@ public class resultatActivity extends AppCompatActivity{
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView4);
         textView.setText("Bravo "+EnterName.myName+", votre score est de "+score+" points en mode "+choix);
-        if (!choix.equals("entrainement")){
+        if (choix.equals("multijoueur")){
             final TextView textView2 = findViewById(R.id.textView12);
 
             final Button button = findViewById(R.id.button8);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    Log.d("-----------------", "onClick: " + choix);
-                    if(choix.equals("multijoueur")){
-                        textView2.setText(LauncherP2P.opponentScore);
-                        String msg = String.valueOf(score);
-                        try {
-                            LauncherP2P.sendReceive.write(msg.getBytes());
-                        } catch (NullPointerException e) {
-                            textView2.setText("Oups !");
-                        }
-                    } else {
-                        textView2.setText("Vous êtes en solo !");
+                    textView2.setText(LauncherP2P.opponentScore);
+                    String msg = String.valueOf(score);
+                    try {
+                        LauncherP2P.sendReceive.write(msg.getBytes());
+                    } catch (NullPointerException e) {
+                        textView2.setText("Oups !");
                     }
                 }
             });
