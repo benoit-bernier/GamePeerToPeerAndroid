@@ -3,6 +3,7 @@ package alexandre.testapp;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -34,8 +35,11 @@ public class resultatActivity extends AppCompatActivity{
         TextView textView = findViewById(R.id.textView4);
         textView.setText("Bravo "+EnterName.myName+", votre score est de "+score);
         if (choix.equals("multijoueur")){
-            final TextView textView2 = findViewById(R.id.textView12);
 
+            DialogFragment dialog = new RuleScore();
+            dialog.show(getSupportFragmentManager(), "RuleScore");
+
+            final TextView textView2 = findViewById(R.id.textView12);
             final Button button = findViewById(R.id.button8);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
