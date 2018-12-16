@@ -1,7 +1,9 @@
 package alexandre.testapp;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.SystemClock;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ public class GameMorse extends AppCompatActivity {
 
     private String choix;
 
+    private MediaPlayer mediaPlayer;
 
     private long debut, fin;
 
@@ -32,6 +35,13 @@ public class GameMorse extends AppCompatActivity {
 
         Intent previousActivity = getIntent();
         choix = previousActivity.getStringExtra("choix");
+
+        mediaPlayer = MediaPlayer.create(GameMorse.this, R.raw.morse);
+        mediaPlayer.start();
+        mediaPlayer.setLooping(true);
+
+        DialogFragment dialog = new RuleMorse();
+        dialog.show(getSupportFragmentManager(), "RuleMorse");
 
         mDetector = new GestureDetectorCompat(this, new GameMorse.MyGestureListener());
         debut=SystemClock.elapsedRealtime();
@@ -65,7 +75,7 @@ public class GameMorse extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
                 intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
                 intent.putExtra(EXTRA_CHOIX, choix);
-
+                mediaPlayer.stop();
                 startActivity(intent);
             }
             return true;
