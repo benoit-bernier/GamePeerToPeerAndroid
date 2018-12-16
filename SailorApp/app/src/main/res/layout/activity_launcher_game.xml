@@ -4,16 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LauncherGame">
+    tools:context=".LauncherGame"
+    android:background="@drawable/background_coast">
 
     <TextView
         android:id="@+id/gameLauncher_descript"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:background="#B83723"
+        android:gravity="center"
         android:text="@string/launchergame_descript"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textSize="36sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,24 +27,25 @@
 
     <Button
         android:id="@+id/gameLauncher_button_game1"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendAGameTapeLeClou"
         android:text="@string/gameLauncher_button_game1"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameLauncher_descript" />
 
     <Button
         android:id="@+id/gameLauncher_button_game2"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendJoinTheCable"
         android:text="@string/gameLauncher_button_game2"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game3"
@@ -50,10 +56,11 @@
 
     <Button
         android:id="@+id/gameLauncher_button_game3"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendJeuDuNiveau"
         android:text="@string/gameLauncher_button_game3"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game4"
@@ -64,10 +71,11 @@
 
     <Button
         android:id="@+id/gameLauncher_button_game4"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendJeuDuHulk"
         android:text="@string/gameLauncher_button_game4"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game5"
@@ -78,10 +86,11 @@
 
     <Button
         android:id="@+id/gameLauncher_button_game5"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendJeuMorse"
         android:text="@string/gameLauncher_button_game5"
         app:layout_constraintBottom_toTopOf="@+id/gameLauncher_button_game6"
@@ -92,10 +101,11 @@
 
     <Button
         android:id="@+id/gameLauncher_button_game6"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/roundedbutton_accueil"
         android:onClick="sendQCM"
         android:text="@string/gameLauncher_button_game6"
         app:layout_constraintBottom_toBottomOf="parent"
