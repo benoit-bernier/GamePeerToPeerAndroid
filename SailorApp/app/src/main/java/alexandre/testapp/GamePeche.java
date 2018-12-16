@@ -122,8 +122,6 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
         debut=SystemClock.elapsedRealtime();
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         Log.d(TAG, "onCreate: Initialisation du sensor");
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);

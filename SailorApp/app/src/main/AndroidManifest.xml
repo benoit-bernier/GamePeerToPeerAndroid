@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".EnterName">
+        <activity android:name=".EnterName"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +28,8 @@
         </activity>
         <activity
             android:name=".PageAccueil"
-            android:parentActivityName=".EnterName">
+            android:parentActivityName=".EnterName"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -36,7 +38,8 @@
         </activity>
         <activity
             android:name=".LauncherGame"
-            android:parentActivityName=".PageAccueil">
+            android:parentActivityName=".PageAccueil"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -45,7 +48,8 @@
         </activity>
         <activity
             android:name=".APropos"
-            android:parentActivityName=".PageAccueil">
+            android:parentActivityName=".PageAccueil"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -53,26 +57,33 @@
                 android:value=".PageAccueil" />
         </activity>
         <activity
-            android:name=".GameTapeLeClou">
+            android:name=".GameTapeLeClou"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GameDrapeau">
+            android:name=".GameDrapeau"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GamePeche">/>
+            android:name=".GamePeche"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GameLumiere">
+            android:name=".GameLumiere"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".GameMorse">
+            android:name=".GameMorse"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".QCMActivity">
+            android:name=".QCMActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".resultatActivity"
-            android:parentActivityName=".PageAccueil">
+            android:parentActivityName=".PageAccueil"
+            android:screenOrientation="portrait">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -81,14 +92,33 @@
         </activity>
         <activity
             android:name=".suivantTouch"
-            android:parentActivityName=".PageAccueil" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PageAccueil">
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".PageAccueil" />
+        </activity>
         <activity
             android:name=".suivantMvt"
-            android:parentActivityName=".PageAccueil" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PageAccueil">
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".PageAccueil" />
+        </activity>
         <activity
             android:name=".suivantChoixMono"
-            android:parentActivityName=".PageAccueil" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".PageAccueil">
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".PageAccueil" />
+        </activity>
         <activity android:name=".LauncherP2P"
+            android:screenOrientation="portrait"
             android:parentActivityName=".PageAccueil">
              <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
