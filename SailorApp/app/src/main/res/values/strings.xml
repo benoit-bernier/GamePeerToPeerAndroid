@@ -10,7 +10,7 @@
     <string name="score">"Dernier score : "</string>
     <string name="score_value">0</string>
     <string name="apropos_text1">Je suis la page \"A propos\"</string>
-    <string name="game_tapeleclou_title">Tap ! Tap ! Tap !</string>
+    <string name="game_tapeleclou_title">Tape Tape Hammer !</string>
     <string name="game_tapeleclou_score">score : 0</string>
     <string name="game_jeuduniveau_x">valeur de x</string>
     <string name="game_jeuduniveau_y">valeur de y</string>
@@ -22,10 +22,10 @@
     <string name="game_morse_button">Restart</string>
     <string name="game_jointhecable_electricity">Amène l\'électricité à la lampe !</string>
     <string name="gameLauncher_button_game1">Tape Tape Hammer !</string>
-    <string name="gameLauncher_button_game2">Join the cable</string>
-    <string name="gameLauncher_button_game3">Le jeu du niveau !</string>
-    <string name="gameLauncher_button_game4">Le jeu du HUUUULK !</string>
-    <string name="gameLauncher_button_game5">Le bô morse O !</string>
+    <string name="gameLauncher_button_game2">Rise the flag !</string>
+    <string name="gameLauncher_button_game3">Pêche simulator</string>
+    <string name="gameLauncher_button_game4">Flashlight</string>
+    <string name="gameLauncher_button_game5">MAYDAY ! MAYDAY !</string>
     <string name="gameLauncher_button_game6">QCM</string>
     <string name="launchergame_descript">Jeux disponibles</string>
     <string name="game_decode_text">Trouve la combinaison du cadena</string>
