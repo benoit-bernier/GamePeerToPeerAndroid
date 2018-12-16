@@ -16,9 +16,8 @@
     <string name="game_jeuduniveau_y">valeur de y</string>
     <string name="game_jeuduniveau_z">valeur de z</string>
     <string name="game_jeuduhulk">zzzzzzzz</string>
-    <string name="game_morse_title">Owk ! Owk ! Owk !</string>
-    <string name="game_morse_descript">Press court ou long pour commencer !</string>
-    <string name="game_morse_modele">Ecrivez SOS en morse</string>
+    <string name="game_morse_title">Mayday ! Mayday !</string>
+    <string name="game_morse_descript">Envoie tes signaux !</string>
     <string name="game_morse_message">Tu verras ton message ici !</string>
     <string name="game_morse_button">Restart</string>
     <string name="game_jointhecable_electricity">Amène l\'électricité à la lampe !</string>
