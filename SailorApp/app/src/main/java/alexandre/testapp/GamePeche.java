@@ -92,7 +92,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
                 mediaPlayer.start();
 
                 fin=SystemClock.elapsedRealtime();
-                Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
+                Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
                 intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+score);
                 intent.putExtra(EXTRA_CHOIX, choix);
 

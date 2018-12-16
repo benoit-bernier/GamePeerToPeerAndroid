@@ -50,7 +50,7 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
         xValues.setText("IT'S OVER  " + sensorEvent.values[0] +" !!");
         if (sensorEvent.values[0]>2500){
             fin = SystemClock.elapsedRealtime();
-            Intent intent = new Intent(getApplicationContext(), suivantMvt.class);
+            Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
             intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
             intent.putExtra(EXTRA_CHOIX, choix);
 

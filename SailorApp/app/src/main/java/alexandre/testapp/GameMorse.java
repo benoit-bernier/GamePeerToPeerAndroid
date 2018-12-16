@@ -72,7 +72,7 @@ public class GameMorse extends AppCompatActivity {
             if(morse.equals("...___...")){ // == ne fonctionne pas
                 fin =SystemClock.elapsedRealtime();
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
-                Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
+                Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
                 intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
                 intent.putExtra(EXTRA_CHOIX, choix);
                 mediaPlayer.stop();

@@ -69,7 +69,7 @@ public class QCMActivity extends AppCompatActivity {
         } else {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
-            intent.putExtra(EXTRA_SCORE, (((int)(debut-fin))/(scoreQCM+1))+score);
+            intent.putExtra(EXTRA_SCORE, (((int)(fin-debut))/(scoreQCM+1))+score);
             // Vérif du choix ici, pour lancer l'activité adéquate.
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
