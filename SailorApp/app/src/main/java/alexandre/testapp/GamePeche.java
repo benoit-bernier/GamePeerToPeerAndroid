@@ -125,8 +125,8 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
         accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         mSensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         Log.d(TAG, "onCreate: Initialisation OK !");
-        MediaPlayer mediaPlayer = MediaPlayer.create(GamePeche.this, R.raw.waves);
-        mediaPlayer.start();
+        //MediaPlayer mediaPlayer = MediaPlayer.create(GamePeche.this, R.raw.waves);
+        //mediaPlayer.start();
         //initialisation de la boucle tout les x millisecondes
         myHandler = new Handler();
         myHandler.postDelayed(myRunnable,5000);
