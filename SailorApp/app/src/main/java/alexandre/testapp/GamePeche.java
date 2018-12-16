@@ -102,7 +102,6 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
                 }
                 intent.putExtra(EXTRA_SCORE, scoreSend);
                 intent.putExtra(EXTRA_CHOIX, choix);
-
                 startActivity(intent);
             }
         }

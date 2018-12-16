@@ -31,13 +31,13 @@ public class suivantTouch extends AppCompatActivity {
 
     public void aleatGame(View view){
         Random rand = new Random();
-        if (rand.nextInt(2)==0){ //nextInt(2) pour accéder au jeu peche aussi
-            Intent intent = new Intent(getApplicationContext(), GameLumiere.class);
+        if (rand.nextInt(1)==0){ //nextInt(2) pour accéder au jeu lumiere aussi
+            Intent intent = new Intent(getApplicationContext(), GamePeche.class);
             intent.putExtra(EXTRA_SCORE, score);
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(getApplicationContext(), GamePeche.class);
+            Intent intent = new Intent(getApplicationContext(), GameLumiere.class);
             intent.putExtra(EXTRA_SCORE, score);
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
