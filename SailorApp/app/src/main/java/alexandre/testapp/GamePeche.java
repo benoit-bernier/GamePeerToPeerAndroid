@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Vibrator;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,7 +75,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
                 public void onFinish() {
                     TextView count = findViewById(R.id.game_jeuduniveau_compteur);
-                    count.setText("Prises : " + String.valueOf(compteur));
+                    count.setText("Nombres de prises : " + String.valueOf(compteur));
                 }
             };
             if (compteur < 5){
@@ -115,6 +116,9 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
         Intent previousActivity = getIntent();
         score = previousActivity.getIntExtra(suivantTouch.EXTRA_SCORE,0);
         choix = previousActivity.getStringExtra(suivantTouch.EXTRA_CHOIX);
+
+        DialogFragment dialog = new RulePeche();
+        dialog.show(getSupportFragmentManager(), "RulePeche");
 
         debut=SystemClock.elapsedRealtime();
 
