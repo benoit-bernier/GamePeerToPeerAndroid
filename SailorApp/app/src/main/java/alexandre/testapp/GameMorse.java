@@ -73,9 +73,11 @@ public class GameMorse extends AppCompatActivity {
                 fin =SystemClock.elapsedRealtime();
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
                 Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-                int scoreSend = 100-(int)(fin-debut)/1000;
+                int scoreSend = 110-(int)(fin-debut)/1000;
                 if (scoreSend < 0){
                     scoreSend=0;
+                } else if (scoreSend > 100){
+                    scoreSend=100;
                 }
                 Log.d("Durée : ", String.valueOf(scoreSend));
                 intent.putExtra(EXTRA_SCORE, scoreSend);
@@ -99,6 +101,8 @@ public class GameMorse extends AppCompatActivity {
                 int scoreSend = 100-(int)(fin-debut)/1000;
                 if (scoreSend < 0){
                     scoreSend=0;
+                } else if (scoreSend > 100){
+                    scoreSend=100;
                 }
                 Log.d("Durée : ", String.valueOf(scoreSend));
                 intent.putExtra(EXTRA_SCORE, scoreSend);
