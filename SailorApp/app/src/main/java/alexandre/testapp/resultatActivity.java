@@ -28,7 +28,6 @@ public class resultatActivity extends AppCompatActivity{
             setContentView(R.layout.activity_resultat);
         } else {
             setContentView(R.layout.activity_resultat_solo);
-
         }
 
         // Capture the layout's TextView and set the string as its text

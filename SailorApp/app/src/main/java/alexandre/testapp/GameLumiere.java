@@ -18,7 +18,7 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
 
-    private String nameOfUser, choix;
+    private String choix;
 
     private SensorManager mSensorManager;
     private Sensor myLight;
@@ -59,7 +59,13 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
         if (sensorEvent.values[0]>2550){
             fin = SystemClock.elapsedRealtime();
             Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-            intent.putExtra(EXTRA_SCORE, (int)(fin-debut)+scoreInit);
+            int scoreSend = 105-(int)(fin-debut)/1000+scoreInit;
+            if (scoreSend < 0){
+                scoreSend=0;
+            } else if (scoreSend > 100){
+                scoreSend=100;
+            }
+            intent.putExtra(EXTRA_SCORE, scoreSend+scoreInit);
             intent.putExtra(EXTRA_CHOIX, choix);
             mSensorManager.unregisterListener(this, myLight);
             startActivity(intent);
