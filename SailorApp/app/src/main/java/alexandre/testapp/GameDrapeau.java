@@ -21,11 +21,12 @@ public class GameDrapeau extends AppCompatActivity {
 
     private GestureDetectorCompat mDetector;
     private int y_position;
-    private int mat_length = 0;
-    private int compteur = -1;
+    private boolean deja_joue = false;
+    private int compteur = 0;
     private int objectif_haut;
     private int objectif_bas;
     private long debut,fin;
+    private int flag_height;
 
     private String nameOfUser;
     public String choix;
@@ -54,59 +55,50 @@ public class GameDrapeau extends AppCompatActivity {
         private static final String DEBUG_TAG = "Gestures";
 
         @Override
-        public boolean onDown(MotionEvent event) {
-            Log.d(DEBUG_TAG,"onDown: " + event.toString());
-            return true;
-        }
-
-        @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                                float velocityX, float velocityY) {
-            Log.d(DEBUG_TAG, "onFling: " + event1.toString() + event2.toString());
-            //recupération des coordonnées + taille du drapeau
-            ImageView champs_photo_flag = findViewById(R.id.flag);
-            int[] tab = new int [2];
-            champs_photo_flag.getLocationOnScreen(tab);
-            int image_flag_x = tab[0];
-            int image_flag_y = tab[1];
-            int image_flag_height = champs_photo_flag.getHeight();
-            int image_flag_width = champs_photo_flag.getWidth();
-            System.out.println("---------> image flag : x:" + image_flag_x + ", y:" + image_flag_y + ", height: " + image_flag_height + ", width: " + image_flag_width);
 
-            //recupération du mat
+            //recupération des coordonnées + taille du drapeau
+            ImageView image_flag = findViewById(R.id.flag);
+            int[] tab = new int [2];
+            image_flag.getLocationOnScreen(tab);
+            int flag_x = tab[0]; //position en x
+            int flag_y = tab[1]; // position en y
+            flag_height = image_flag.getHeight();
+
+            //infos du mat
             ImageView champs_photo_mat = findViewById(R.id.mat);
-            int image_mat_height = champs_photo_mat.getHeight();
+            int mat_height = champs_photo_mat.getHeight();
+            int mat_haut = 20; //mat moins la boule
+            int mat_bas = mat_height-420; // mat moins le pied
 
             //recupération des images objectifs
-            ImageView champs_photo_objectif_haut = findViewById(R.id.imageView4);
-            ImageView champs_photo_objectif_bas = findViewById(R.id.imageView5);
+            ImageView image_objectif_haut = findViewById(R.id.imageView4);
+            ImageView image_objectif_bas = findViewById(R.id.imageView5);
 
             // initialisation du drapeau et des objectifs
-            if (mat_length == 0){
-                mat_length = image_mat_height;
-                y_position = mat_length - image_flag_height;
-                objectif_haut = 0;
-                objectif_bas = image_flag_height+image_flag_height +20;
-                champs_photo_objectif_haut.setY(objectif_haut);
-                champs_photo_objectif_bas.setY(objectif_bas);
+            if (!deja_joue){
+                objectif_haut = 50;
+                objectif_bas = objectif_haut+flag_height +20;// 20 --> epaisseur de obj_haut + un peu de marge
+                image_objectif_haut.setY(objectif_haut);
+                image_objectif_bas.setY(objectif_bas);
+                deja_joue=true;
             }
-
-            // on bouge le drapeau en fonction de l'action
+            // position du drapeau selon le fling
             if (event1.getY() < event2.getY()){
                 y_position-=Math.abs(event1.getY()-event2.getY())/10;
             }else {
                 y_position+=Math.abs(event1.getY()-event2.getY())/10;
             }
 
-            // on regarde si ça sort pas du mat
-            if(y_position <= 0){
-                y_position = 0;
-            } else if (y_position >= mat_length - image_flag_height){
-                y_position = mat_length - image_flag_height;
+            // on regarde si ça sort pas du mat (entre la boule et le pied)
+            if(y_position < mat_haut){
+                y_position = mat_haut;
+            } else if (y_position+flag_height > mat_bas){
+                y_position = mat_bas - flag_height;
             }
-            champs_photo_flag.setY(y_position);
 
-            System.out.println("--------->" + objectif_haut + "------------->" + objectif_bas);
+            image_flag.setY(y_position);
 
             if(verify()){
                 if (compteur == 3){
@@ -118,17 +110,17 @@ public class GameDrapeau extends AppCompatActivity {
                 } else{
                     compteur++;
                     Random r = new Random();
-                    objectif_haut = r.nextInt(image_mat_height - image_flag_height);
-                    objectif_bas = objectif_haut + image_flag_height + 20;
-                    champs_photo_objectif_haut.setY(objectif_haut);
-                    champs_photo_objectif_bas.setY(objectif_bas);
+                    objectif_haut = r.nextInt(mat_bas-flag_height)+mat_haut; // objectif_haut entre mat_bas et mat_haut
+                    objectif_bas = objectif_haut + flag_height + 20;
+                    image_objectif_haut.setY(objectif_haut);
+                    image_objectif_bas.setY(objectif_bas);
                 }
             }
             return true;
         }
 
         private boolean verify (){
-            return y_position >= objectif_haut && y_position <= objectif_bas;
+            return (y_position+(flag_height/2) >= objectif_haut && (y_position+(flag_height/2)) <= objectif_bas);
         }
     }
 
