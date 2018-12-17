@@ -50,7 +50,7 @@
         android:alpha="0.7"
         android:background="#000000"
         android:gravity="center"
-        android:text="TextView"
+        android:text="Appuyer sur le bouton SCORE pour envoyer votre score"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

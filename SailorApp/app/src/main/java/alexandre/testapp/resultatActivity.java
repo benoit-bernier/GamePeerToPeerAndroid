@@ -1,9 +1,10 @@
 package alexandre.testapp;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ public class resultatActivity extends AppCompatActivity{
     public static final String EXTRA__CHOIX = "choix";
     private int score;
     private String choix;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +28,52 @@ public class resultatActivity extends AppCompatActivity{
             setContentView(R.layout.activity_resultat);
         } else {
             setContentView(R.layout.activity_resultat_solo);
-
         }
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.textView4);
-        textView.setText("Bravo "+EnterName.myName+", votre score est de "+score+" points en mode "+choix);
+        textView.setText("Bravo "+EnterName.myName+", votre score est de "+score);
         if (choix.equals("multijoueur")){
-            final TextView textView2 = findViewById(R.id.textView12);
 
+            DialogFragment dialog = new RuleScore();
+            dialog.show(getSupportFragmentManager(), "RuleScore");
+
+            final TextView textView2 = findViewById(R.id.textView12);
             final Button button = findViewById(R.id.button8);
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    textView2.setText(LauncherP2P.opponentScore);
+                    textView2.setText("score envoyé... En attente du score de votre adversaire...");
                     String msg = String.valueOf(score);
                     try {
                         LauncherP2P.sendReceive.write(msg.getBytes());
+
                     } catch (NullPointerException e) {
-                        textView2.setText("Oups !");
+                        textView2.setText("Oups ! Vous n'êtes plus appareillé avec votre ami !");
+                        mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.looser);
+                        mediaPlayer.start();
+                    }
+                    if (!LauncherP2P.opponentScore.equals("pas de score")){
+                        if (Integer.valueOf(LauncherP2P.opponentScore) < score) {
+                            textView2.setText("Vous avez gagné !");
+                            mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.clapping);
+                            mediaPlayer.start();
+                        } else {
+                            textView2.setText("Vous avez perdu !");
+                            mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.looser);
+                            mediaPlayer.start();
+                        }
                     }
                 }
             });
+        } else {
+            mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.clapping);
+            mediaPlayer.start();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
     }
 
     public void sendNew(View view) {

@@ -44,6 +44,11 @@ public class GameDrapeau extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event){
         this.mDetector.onTouchEvent(event);
         //a activer pour avoir les logs dans la console

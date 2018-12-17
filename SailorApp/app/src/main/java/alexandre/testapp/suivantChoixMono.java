@@ -26,6 +26,11 @@ public class suivantChoixMono extends AppCompatActivity {
         textView.setText("Bienvenue "+ EnterName.myName +", vous avez choisi le mode "+choix);
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void MonoSendJEU1(View view) {
         List<Class<? extends android.support.v7.app.AppCompatActivity>> ClassList = Arrays.asList(GameTapeLeClou.class, GameMorse.class, GameDrapeau.class);
         Random rand = new Random();

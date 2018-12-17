@@ -47,6 +47,11 @@ public class GameMorse extends AppCompatActivity {
         debut=SystemClock.elapsedRealtime();
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void restart(View view){
         morse = "";
         TextView champs_message = findViewById(R.id.game_morse_message);
@@ -73,7 +78,14 @@ public class GameMorse extends AppCompatActivity {
                 fin =SystemClock.elapsedRealtime();
                 Log.d("Durée : ", String.valueOf((int)fin-debut));
                 Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-                intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                int scoreSend = 110-(int)(fin-debut)/1000;
+                if (scoreSend < 0){
+                    scoreSend=0;
+                } else if (scoreSend > 100){
+                    scoreSend=100;
+                }
+                Log.d("Durée : ", String.valueOf(scoreSend));
+                intent.putExtra(EXTRA_SCORE, scoreSend);
                 intent.putExtra(EXTRA_CHOIX, choix);
                 mediaPlayer.stop();
                 startActivity(intent);
@@ -91,8 +103,14 @@ public class GameMorse extends AppCompatActivity {
             if(morse.equals("...___...")){
                 fin=SystemClock.elapsedRealtime();
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
-                Log.d("Durée : ", String.valueOf((int)fin-debut));
-                intent.putExtra(EXTRA_SCORE, (int) (fin-debut));
+                int scoreSend = 100-(int)(fin-debut)/1000;
+                if (scoreSend < 0){
+                    scoreSend=0;
+                } else if (scoreSend > 100){
+                    scoreSend=100;
+                }
+                Log.d("Durée : ", String.valueOf(scoreSend));
+                intent.putExtra(EXTRA_SCORE, scoreSend);
                 intent.putExtra(EXTRA_CHOIX, choix);
                 startActivity(intent);
             }

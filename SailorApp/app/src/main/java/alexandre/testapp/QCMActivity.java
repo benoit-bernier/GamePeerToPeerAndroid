@@ -24,7 +24,6 @@ public class QCMActivity extends AppCompatActivity {
 
     public static final String EXTRA_SCORE = "score"; // NE PAS MODIFIER
     public static final String EXTRA_CHOIX = "choix";
-    public static final String EXTRA_NOM = "nom";
 
 
     //@Override
@@ -42,6 +41,10 @@ public class QCMActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "RuleQCM");
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
 
     public void verif4(View view) {
         verifyReponse("button4");
@@ -73,7 +76,7 @@ public class QCMActivity extends AppCompatActivity {
         } else {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
-            intent.putExtra(EXTRA_SCORE, (((int)(fin-debut))/(scoreQCM+1))+score);
+            intent.putExtra(EXTRA_SCORE, scoreQCM*33+score+1);
             // Vérif du choix ici, pour lancer l'activité adéquate.
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);

@@ -32,13 +32,18 @@ public class GameTapeLeClou extends AppCompatActivity {
         setContentView(R.layout.activity_game_tape_le_clou);
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     final CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
         public void onTick(long millisUntilFinished) {
         }
 
         public void onFinish() {
             Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantTouch.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-            intent.putExtra(EXTRA_SCORE, compteur);
+            intent.putExtra(EXTRA_SCORE, 2*compteur);
             intent.putExtra(EXTRA_CHOIX, choix);
             mediaPlayer.stop();
             startActivity(intent);

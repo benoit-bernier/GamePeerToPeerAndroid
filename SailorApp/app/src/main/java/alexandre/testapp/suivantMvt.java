@@ -27,6 +27,11 @@ public class suivantMvt extends AppCompatActivity{
         textView.setText("Votre score provisoire est de "+score+" points");
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void SENSORsendQCM(View view) {
         Intent intent = new Intent(this, QCMActivity.class);
         intent.putExtra(EXTRA_SCORE, score);
