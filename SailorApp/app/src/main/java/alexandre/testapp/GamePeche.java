@@ -79,7 +79,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
                     count.setText("Nombres de prises : " + String.valueOf(compteur));
                 }
             };
-            if (compteur < 5){
+            if (compteur < 3){
                 countDownTimer.start(); //lancement du timer
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); // init du vibreur
                 v.vibrate(5*Math.round(exp(time)));
@@ -95,7 +95,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
                 fin=SystemClock.elapsedRealtime();
                 Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-                int scoreSend = 140-(int)(2*(fin-debut))/1000+score;
+                int scoreSend = 140-(int)((2*(fin-debut))/1000)+score;
                 if (scoreSend < 0){
                     scoreSend=0+score;
                 } else if (scoreSend > 100){
