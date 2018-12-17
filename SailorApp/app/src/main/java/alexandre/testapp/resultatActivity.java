@@ -68,6 +68,21 @@ public class resultatActivity extends AppCompatActivity{
         } else {
             mediaPlayer = MediaPlayer.create(resultatActivity.this, R.raw.clapping);
             mediaPlayer.start();
+            TextView score1 = findViewById(R.id.score1);
+            TextView score2 = findViewById(R.id.score2);
+            TextView score3 = findViewById(R.id.score3);
+            TextView score4 = findViewById(R.id.score4);
+            if (choix.equals("solo")){
+                score1.setText("299");
+                score2.setText("250");
+                score3.setText("267");
+                score4.setText("12");
+            } else {
+                score1.setText("76");
+                score2.setText("60");
+                score3.setText("55");
+                score4.setText("2");
+            }
         }
     }
 
