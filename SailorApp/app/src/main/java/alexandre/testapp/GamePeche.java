@@ -79,7 +79,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
                     count.setText("Nombres de prises : " + String.valueOf(compteur));
                 }
             };
-            if (compteur < 5){
+            if (compteur < 3){
                 countDownTimer.start(); //lancement du timer
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); // init du vibreur
                 v.vibrate(5*Math.round(exp(time)));
