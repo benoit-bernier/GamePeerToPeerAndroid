@@ -18,7 +18,10 @@ public class QCMActivity extends AppCompatActivity {
     private final String[][] QuestionsReponses = new String[][]{
             new String[]{"Capitale de la France ?", "Paris", "Rennes", "Brest", "button4"},
             new String[]{"Route du ...", "Punch", "Rhum", "Whisky", "button5"},
-            new String[]{"Une marée dure :", "5 heures", "6 heures", "8 heures", "button5"}
+            new String[]{"Une marée dure :", "5 heures", "6 heures", "8 heures", "button5"},
+            new String []{"La proue se situe :", "devant", "au milieu", "derrière", "button4"},
+            new String []{"Tribord, c'est où ?", "à gauche", "devant", "à droite", "button6"},
+            new String[]{"La balise babord N'est PAS", "verte", "rouge", "cylindrique", "button4"}
     };
     private int compteurQuestions = 0;
 
@@ -76,7 +79,7 @@ public class QCMActivity extends AppCompatActivity {
         } else {
             fin=SystemClock.elapsedRealtime();
             Intent intent = new Intent(this, resultatActivity.class);
-            intent.putExtra(EXTRA_SCORE, scoreQCM*33+score+1);
+            intent.putExtra(EXTRA_SCORE, scoreQCM*(Math.round(100/QuestionsReponses.length))+score);
             // Vérif du choix ici, pour lancer l'activité adéquate.
             intent.putExtra(EXTRA_CHOIX, choix);
             startActivity(intent);
