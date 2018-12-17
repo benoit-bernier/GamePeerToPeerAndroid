@@ -116,6 +116,11 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
     }
 
     @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_jeu_du_niveau);

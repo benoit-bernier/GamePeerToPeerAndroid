@@ -29,6 +29,11 @@ public class suivantTouch extends AppCompatActivity {
         champs_score.setText("Votre score provisoire est de "+score+" points");
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void aleatGame(View view){
         Random rand = new Random();
         if (rand.nextInt(1)==0){ //nextInt(2) pour accéder au jeu lumiere aussi

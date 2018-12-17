@@ -71,6 +71,11 @@ public class resultatActivity extends AppCompatActivity{
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void sendNew(View view) {
         Intent nextPage = new Intent(this, suivantChoixMono.class);
         nextPage.putExtra(EXTRA__CHOIX, choix);

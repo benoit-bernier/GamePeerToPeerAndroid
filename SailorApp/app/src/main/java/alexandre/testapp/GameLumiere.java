@@ -45,6 +45,11 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
     }
 
     @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
+    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 

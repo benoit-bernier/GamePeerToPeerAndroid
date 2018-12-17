@@ -41,6 +41,10 @@ public class QCMActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "RuleQCM");
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
 
     public void verif4(View view) {
         verifyReponse("button4");

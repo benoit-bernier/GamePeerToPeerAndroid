@@ -47,6 +47,11 @@ public class GameMorse extends AppCompatActivity {
         debut=SystemClock.elapsedRealtime();
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     public void restart(View view){
         morse = "";
         TextView champs_message = findViewById(R.id.game_morse_message);

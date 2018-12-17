@@ -32,6 +32,11 @@ public class GameTapeLeClou extends AppCompatActivity {
         setContentView(R.layout.activity_game_tape_le_clou);
     }
 
+    @Override
+    public void onBackPressed() {
+        // on empêche le bouton retour
+    }
+
     final CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
         public void onTick(long millisUntilFinished) {
         }
