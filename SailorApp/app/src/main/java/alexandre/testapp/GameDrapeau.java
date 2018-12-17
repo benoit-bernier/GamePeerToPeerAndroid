@@ -2,6 +2,7 @@ package alexandre.testapp;
 
 import android.content.Intent;
 import android.os.SystemClock;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,10 @@ public class GameDrapeau extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_join_the_cable);
+
+        DialogFragment dialog = new RuleDrapeau();
+        dialog.show(getSupportFragmentManager(), "RuleDrapeau");
+
         Intent previousActivity = getIntent();
         choix = previousActivity.getStringExtra(suivantChoixMono.EXTRA_CHOIX);
 
@@ -84,6 +89,7 @@ public class GameDrapeau extends AppCompatActivity {
             // initialisation du drapeau et des objectifs
             if (!deja_joue){
                 objectif_haut = 50;
+                y_position=flag_y;
                 objectif_bas = objectif_haut+flag_height +20;// 20 --> epaisseur de obj_haut + un peu de marge
                 image_objectif_haut.setY(objectif_haut);
                 image_objectif_bas.setY(objectif_bas);
@@ -125,7 +131,7 @@ public class GameDrapeau extends AppCompatActivity {
         }
 
         private boolean verify (){
-            return (y_position+(flag_height/2) >= objectif_haut && (y_position+(flag_height/2)) <= objectif_bas);
+            return (y_position+(flag_height/2) >= objectif_haut+30 && (y_position+(flag_height/2)) <= objectif_bas-30);
         }
     }
 
