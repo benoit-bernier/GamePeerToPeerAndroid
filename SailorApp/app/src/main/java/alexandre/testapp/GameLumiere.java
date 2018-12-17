@@ -64,7 +64,7 @@ public class GameLumiere extends AppCompatActivity implements SensorEventListene
         if (sensorEvent.values[0]>2550){
             fin = SystemClock.elapsedRealtime();
             Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-            int scoreSend = 105-(int)(fin-debut)/1000+scoreInit;
+            int scoreSend = 105-(int)(2*(fin-debut)/1000)+scoreInit;
             if (scoreSend < 0){
                 scoreSend=0;
             } else if (scoreSend > 100){

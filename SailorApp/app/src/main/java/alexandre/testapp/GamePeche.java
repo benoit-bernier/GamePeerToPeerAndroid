@@ -95,7 +95,7 @@ public class GamePeche extends AppCompatActivity implements SensorEventListener 
 
                 fin=SystemClock.elapsedRealtime();
                 Intent intent = (!choix.equals("entrainement")) ? (new Intent(getApplicationContext(), suivantMvt.class)) : (new Intent(getApplicationContext(), resultatActivity.class));
-                int scoreSend = 140-(int)(fin-debut)/1000+score;
+                int scoreSend = 140-(int)(2*(fin-debut))/1000+score;
                 if (scoreSend < 0){
                     scoreSend=0+score;
                 } else if (scoreSend > 100){

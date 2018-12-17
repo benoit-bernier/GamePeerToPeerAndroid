@@ -103,7 +103,7 @@ public class GameMorse extends AppCompatActivity {
             if(morse.equals("...___...")){
                 fin=SystemClock.elapsedRealtime();
                 Intent intent = new Intent(getApplicationContext(), suivantTouch.class);
-                int scoreSend = 100-(int)(fin-debut)/1000;
+                int scoreSend = 100-(int)(2*(fin-debut))/1000;
                 if (scoreSend < 0){
                     scoreSend=0;
                 } else if (scoreSend > 100){
