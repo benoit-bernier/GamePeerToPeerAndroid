@@ -1,22 +1,9 @@
 # GamePeerToPeerAndroid
-## Choix d'un thème
-- **Le bricolage**
-## 6 défis
-### Défi de geste (Alexandre)
-- Taper avec un marteau --> je sais pas comment faire
-- Faire le niveau à bulle - la base est là, manque plus que le traitement derrière
 
-### Défi de mouvement sur l'écran (Alexandre)
-- Dévisser / visser une vis
-- Relier les deux fils electriques - voir en TP car problème pour récupérer la position d'une image
-- Tape marteau / clou comme (cookie clicker) - done
+## QuickstartSample --> BDD
 
-### Défi de réponse à une question (Bernier)
-- Trouver le nom de la vis
-- Trouver le nom de l'outil
-- Problèmes de baignoire
+## SailorApp --> application finale
 
-### BONUS
+## TestApp_v2 --> application test sur API trop élevé pour test sur Tablette Lolipop
 
-- Réveille le Bernier en envoyant de la lumière ! (capteur de luminosité) --> fait !
-- Parler en faisant du morse --> appui long / court --> fait !
+## TestP2Pv5 --> application test P2P
